@@ -4,17 +4,19 @@ import { useState } from 'react';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { lusitana } from '@/app/ui/fonts';
+import { FormEvent } from 'react';
+import { ChangeEvent } from 'react';
 
 export default function Page() {
   const [guess, setGuess] = useState('');
   const [targetNumber, setTargetNumber] = useState(Math.floor(Math.random() * 100) + 1);
   const [message, setMessage] = useState('');
 
-  const handleGuessChange = (event) => {
+  const handleGuessChange = (event: ChangeEvent<HTMLInputElement>) => {
     setGuess(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const guessNumber = parseInt(guess);
     if (guessNumber === targetNumber) {
