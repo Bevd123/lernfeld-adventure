@@ -13,20 +13,20 @@ import clsx from "clsx";
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Level 1',
-    href: '/dashboard',
+    href: '/dashboard?Nav=1',
     icon: HomeIcon 
   },
   {
     name: 'Level 2',
-    href: '/dashboard/Level-2',
+    href: '/dashboard/Level-2?Nav=1',
     icon: DocumentDuplicateIcon,
   },
   { name: 'Level 3',
-    href: '/dashboard/Level-3',
+    href: '/dashboard/Level-3?Nav=1',
     icon: UserGroupIcon 
   },
   { name: 'Level 4',
-    href: '/dashboard/Level-4',
+    href: '/dashboard/Level-4?Nav=1',
     icon: HomeIcon 
   },
   {

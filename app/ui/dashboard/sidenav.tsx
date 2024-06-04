@@ -1,9 +1,15 @@
-  import Link from 'next/link';
+"use client";
+
+import Link from 'next/link';
 import NavLinks from '@/app/ui/dashboard/nav-links';
 import AcmeLogo from '@/app/ui/acme-logo';
 import { PowerIcon } from '@heroicons/react/24/outline';
+import { useSearchParams } from 'next/navigation';
 
 export default function SideNav() {
+  const searchParams = useSearchParams();
+
+  if(searchParams.has('Nav')){
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-2">
       <Link
@@ -25,5 +31,4 @@ export default function SideNav() {
         </form>
       </div>
     </div>
-  );
-}
+  );} }
