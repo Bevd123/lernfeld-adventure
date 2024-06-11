@@ -15,7 +15,11 @@ export default function Page() {
   const [targetNumber, setTargetNumber] = useState(Math.floor(Math.random() * 1000));
   const [message, setMessage] = useState('');
 
+  
+
+
   const handleGuessChange = (event: ChangeEvent<HTMLInputElement>) => {
+    cookies.set("secretPIN", targetNumber.toString());
     setGuess(event.target.value);
   };
 

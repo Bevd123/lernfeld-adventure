@@ -1,8 +1,9 @@
 "use client";
 
 import { CheckIcon } from "@heroicons/react/24/outline";
+import { ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { complete } from "../../public/json/completion.json"
+import { complete } from "../../public/json/completion.json";
 import { useState, useEffect } from "react";
 import { useCookies } from 'next-client-cookies';
 import { usePathname } from "next/navigation";
@@ -15,35 +16,36 @@ export default function SignupPage() {
     const [ResetPassword, setResetPassword] = useState(false);
     const [error, setError] = useState("");
 
-    useEffect(()=>{
-        const timer = setTimeout( () => setError("Try reset your PIN!") , 4000)
+    useEffect(() => {
+        const timer = setTimeout(() => setError("Try reset your PIN!"), 4000);
         return () => clearTimeout(timer);
-      }, [])
-    
+    }, []);
+
     const reset = () => {
-        cookies.set("username", username)
-        cookies.set("email", email)
-        complete[0]["Zwei"] = true
-    }
-    
+        cookies.set("username", username);
+        cookies.set("email", email);
+        complete[0]["Zwei"] = true;
+        window.location.href = "dashboard/Level-2";
+    };
+
     const pathname = usePathname();
 
     const checkWin = () => {
-        if (password == "420"){
+        if (password === cookies.get("secretPIN")) {
             window.location.href = "/dashboard/Level-3";
         } else {
-            setError("Falsch!")
+            setError("Falsch!");
         }
-    } 
+    };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
-            if (password == "420"){
+            if (password === "420") {
                 console.log("Signup successful:", { username, email, password });
                 cookies.set("username", username);
-                cookies.set("email", email)
+                cookies.set("email", email);
             }
 
         } catch (error) {
@@ -51,18 +53,15 @@ export default function SignupPage() {
         }
     };
 
-    
-
     useEffect(() => {
         document.title = "Signup | Lernfeld Adventure";
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 radius-30">
-            <h1 className="text-4xl font-bold mb-8">Lernfeld Adventure</h1>
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded-lg shadow-md">
-                
-                    { cookies.get("PIN") !== "420" && <div className="text-red-500 mb-4">{error}</div>}
+        <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+            <h1 className="text-3xl font-bold mb-6 text-center">Lernfeld Adventure</h1>
+            <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+                {cookies.get("PIN") !== "420" && <div className="text-red-500 mb-4 text-center">{error}</div>}
                 <div className="mb-4">
                     <label htmlFor="username" className="block text-gray-700 font-bold mb-2">
                         Username
@@ -89,7 +88,7 @@ export default function SignupPage() {
                 </div>
                 <div className="mb-4">
                     <label htmlFor="password" className="block text-gray-700 font-bold mb-2">
-                        PIN
+                        PIN <ShieldCheckIcon title="Pin" className="h-5 w-5 inline-block mb-1" />
                     </label>
                     <input
                         type="password"
@@ -101,14 +100,17 @@ export default function SignupPage() {
                 </div>
                 <button
                     onClick={() => checkWin()}
-                    className="hover:text-white transition-colors duration-200 ease-in-out hover:bg-blue-500 text-sm text-blue-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                > Login </button> 
-                <a
-                     href="/dashboard/Level-2"
-                     onClick={reset}
-                     className="hover:text-white transition-colors duration-200 ease-in-out hover:bg-blue-500 text-sm text-blue-500 font-bold ml-10 p-2 rounded-xl border-blue-500 border-2"
-                     > Reset PIN </a>
-                
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+                >
+                    Login
+                </button>
+                <button
+                    
+                    onClick={reset}
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mt-4"
+                >
+                    Reset PIN
+                </button>
             </form>
         </div>
     );

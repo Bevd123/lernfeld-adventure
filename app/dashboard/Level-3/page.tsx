@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import {Inter} from "next/font/google";
+import { Inter } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
 import { any, boolean, number, string } from "zod";
@@ -48,70 +48,60 @@ const products = [
 
 export default function Page() {
   const [cart, setCart] = useState<any[]>([]);
-  const [activeImageIndex, setActiveImageIndex] = useState([0,1,1,0,1,0,0]);
+  const [activeImageIndex, setActiveImageIndex] = useState([0, 1, 1, 0, 1, 0, 0]);
   const [isExtended, setIsExtended] = useState(false);
 
   const winCondition = [
     {
-      "id": 3,
-      "name": "Gartenhaus",
-      "price": 39.99,
-      "images": [
-        "/re/house.png",
-        "/re/house2.png"
-      ]
+      id: 3,
+      name: "Gartenhaus",
+      price: 39.99,
+      images: ["/re/house.png", "/re/house2.png"],
     },
     {
-      "id": 2,
-      "name": "Gartenzwerg",
-      "price": 29.99,
-      "images": [
-        "/re/garden.png",
-        "/re/garden2.png"
-      ]
-    }
-  ]
+      id: 2,
+      name: "Gartenzwerg",
+      price: 29.99,
+      images: ["/re/garden.png", "/re/garden2.png"],
+    },
+  ];
 
   const SecWinCondition = [
     {
-      "id": 2,
-      "name": "Gartenzwerg",
-      "price": 29.99,
-      "images": [
-        "/re/garden.png",
-        "/re/garden2.png"
-      ]
+      id: 2,
+      name: "Gartenzwerg",
+      price: 29.99,
+      images: ["/re/garden.png", "/re/garden2.png"],
     },
     {
-      "id": 3,
-      "name": "Gartenhaus",
-      "price": 39.99,
-      "images": [
-        "/re/house.png",
-        "/re/house2.png"
-      ]
-    }
-  ]
+      id: 3,
+      name: "Gartenhaus",
+      price: 39.99,
+      images: ["/re/house.png", "/re/house2.png"],
+    },
+  ];
 
   const handleExtend = () => {
     setIsExtended(!isExtended);
   };
 
-  
-  
-  const isWin = (deposit: any) =>{
-    if (JSON.stringify(deposit) == JSON.stringify(winCondition) || JSON.stringify(deposit) == JSON.stringify(SecWinCondition)){
+  const isWin = (deposit: any) => {
+    if (
+      JSON.stringify(deposit) === JSON.stringify(winCondition) ||
+      JSON.stringify(deposit) === JSON.stringify(SecWinCondition)
+    ) {
       return true;
-    }else{
+    } else {
       console.log(JSON.stringify(deposit));
       console.log(JSON.stringify(winCondition));
       return false;
     }
-  }
+  };
 
   const handleSwitchImages = (productId: any) => {
     const myArr = [...activeImageIndex];
-    myArr[productId] = ( activeImageIndex[productId] = (activeImageIndex[productId]== 1) ? 0 : 1 )
+    myArr[productId] =
+      (activeImageIndex[productId] = activeImageIndex[productId] === 1 ? 0 : 1);
     setActiveImageIndex(myArr);
   };
 
@@ -120,10 +110,10 @@ export default function Page() {
   };
 
   const cartCheck = () => {
-    if (isWin(cart)){
+    if (isWin(cart)) {
       window.location.href = "/dashboard/Level-4";
     }
-  }
+  };
 
   return (
     <main className="flex min-h-screen flex-col p-6 select-none">
@@ -136,20 +126,19 @@ export default function Page() {
 
       {isExtended && (
         <div className="absolute top-12 right-4 bg-white p-4 rounded-lg shadow-md">
-          {<div>
+          <div>
             <strong>Einkaufsliste</strong>
             <ul>
-              <li>Gartzenzwerg - $29.99</li>
+              <li>Gartenzwerg - $29.99</li>
               <li>Gartenhaus - $39.99</li>
             </ul>
-            </div>
-          }          
+          </div>
         </div>
       )}
       <h1 className="text-3xl font-bold text-gray-800">Gartenshop</h1>
-      <div className="grid grid-cols-3 gap-4 mt-6">
+      <div className="grid grid-cols-1 gap-4 mt-6 md:grid-cols-3">
         {products.map((product) => (
-          <div key={product.id} className="basis-1/3 flex flex-col items-center">
+          <div key={product.id} className="flex flex-col items-center">
             <div className="relative">
               <Image
                 src={product.images[activeImageIndex[product.id]]}
@@ -158,24 +147,31 @@ export default function Page() {
                 height={200}
                 className="rounded-lg"
               />
-              <button className="absolute top-1/2 left-2" onClick={() => handleSwitchImages(product.id)}>
+              <button
+                className="absolute top-1/2 left-2"
+                onClick={() => handleSwitchImages(product.id)}
+              >
                 <ArrowLeftIcon className="w-5 h-5" />
               </button>
-              <button className="absolute top-1/2 right-2" onClick={() => handleSwitchImages(product.id)}>
+              <button
+                className="absolute top-1/2 right-2"
+                onClick={() => handleSwitchImages(product.id)}
+              >
                 <ArrowRightIcon className="w-5 h-5" />
               </button>
               <div className="flex mt-4">
                 {product.images.map((_, index) => (
-                  <ImageIndicator key={index} isActive={index === activeImageIndex[product.id]} />
+                  <ImageIndicator
+                    key={index}
+                    isActive={index === activeImageIndex[product.id]}
+                  />
                 ))}
               </div>
             </div>
             <h3 className="text-xl font-medium text-gray-800 mt-2">
-              {"product.name"}
+              {product.name}
             </h3>
-            <p className="text-gray-700 mt-1">
-              ${"product.price"}
-            </p>
+            <p className="text-gray-700 mt-1">${product.price}</p>
             <button
               className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
               onClick={() => addToCart(product)}
@@ -195,10 +191,16 @@ export default function Page() {
               </li>
             ))}
           </ul>
-          <button onClick={() => cartCheck()} className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base">
+          <button
+            onClick={() => cartCheck()}
+            className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
+          >
             Proceed to Checkout
           </button>
-          <button onClick={() => setCart([])} className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base">
+          <button
+            onClick={() => setCart([])}
+            className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
+          >
             Clear Cart
           </button>
         </div>
