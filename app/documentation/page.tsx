@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { lusitana } from '../ui/fonts';
 import Image from 'next/image';
 import { useState } from 'react';
-import { sculptureList } from './data.js';
+import { sculptureList } from '../../public/data.js';
 
 export default function Page() {
   const [index, setIndex] = useState(0);
