@@ -4,7 +4,7 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 import {Inter} from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
-import { boolean, number } from "zod";
+import { any, boolean, number, string } from "zod";
 import { CookiesProvider } from "next-client-cookies/server";
 
 const products = [
@@ -47,7 +47,7 @@ const products = [
 ];
 
 export default function Page() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState<any[]>([]);
   const [activeImageIndex, setActiveImageIndex] = useState([0,1,1,0,1,0,0]);
   const [isExtended, setIsExtended] = useState(false);
 
@@ -99,7 +99,7 @@ export default function Page() {
 
   
   
-  const isWin = (deposit) =>{
+  const isWin = (deposit: any) =>{
     if (JSON.stringify(deposit) == JSON.stringify(winCondition) || JSON.stringify(deposit) == JSON.stringify(SecWinCondition)){
       return true;
     }else{
@@ -109,16 +109,13 @@ export default function Page() {
     }
   }
 
-  const handleSwitchImages = (productId) => {
+  const handleSwitchImages = (productId: any) => {
     const myArr = [...activeImageIndex];
     myArr[productId] = ( activeImageIndex[productId] = (activeImageIndex[productId]== 1) ? 0 : 1 )
     setActiveImageIndex(myArr);
   };
-  const handleAddToCart = (product) => {
-    setCart([...cart, product])
-  };
 
-  const addToCart = (product) => {
+  const addToCart = (product: any) => {
     setCart([...cart, product]);
   };
 
@@ -210,7 +207,7 @@ export default function Page() {
   );
 }
 
-function ImageIndicator({ isActive }) {
+function ImageIndicator({ isActive }: any) {
   return (
     <span
       className={`h-3 w-3 rounded-full ${

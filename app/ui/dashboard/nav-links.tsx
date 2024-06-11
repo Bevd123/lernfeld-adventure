@@ -14,12 +14,11 @@ import { XMarkIcon }  from '@heroicons/react/24/outline';
 import { CookiesProvider } from 'next-client-cookies/server';
 import { complete } from "../../../public/json/completion.json"
 import { FlagIcon } from '@heroicons/react/24/outline';
-import * from 'react-icons';
 
 const links = [
   { name: 'Level 1',
     href: '/dashboard',
-    icon:  GiRobotAntennas,
+    icon:  FlagIcon,
   },
   {
     name: 'Level 2',
