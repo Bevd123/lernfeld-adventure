@@ -44,7 +44,7 @@ function ProfilePage() {
         cookies.remove("CCV");
         cookies.remove("EXP");
         alert("3 Fehlversuche, bitte neustarten.")
-        window.location.href = "dashboard"
+        window.location.href = "/"
     } else {
         setIsWrong(true)
         setWrongCount(wrongCount + 1)
@@ -128,7 +128,7 @@ function ProfilePage() {
           />
           {isHovering && (
           <div className="ml-3 bg-white p-2 rounded-md shadow-md">
-            <p>lessSecure &trade; Ihre Kreditkartennummer lautet: 0b10110011011 - 0b1011011110001 - 0b100101011110 - 0b1010101110000</p> {/* 1435-5873-2398-5488 */}
+            <p>lessSecure&trade; Ihre Kreditkartennummer lautet: 0b10110011011 - 0b1011011110001 - 0b100101011110 - 0b1010101110000</p> {/* 1435-5873-2398-5488 */}
           </div>
         )}
         </div>
@@ -148,7 +148,7 @@ function ProfilePage() {
           />
           {isHovering1 && (
           <div className="ml-3 bg-white p-2 rounded-md shadow-md">
-            <p>lessSecure &trade; Ihre CVV lautet: 0x2F4</p> {/*756*/}
+            <p>lessSecure&trade; Ihre CVV lautet: 0x2F4</p> {/*756*/}
           </div>
         )}
         </div>
@@ -169,7 +169,7 @@ function ProfilePage() {
         />
         {isHovering2 && (
           <div className="ml-3 bg-white p-2 rounded-md shadow-md">
-            <p>lessSecure &trade; Ihre EXP lautet: 0o13/0x33</p> {/*11/27*/}
+            <p>lessSecure&trade; Ihre EXP lautet: 0o13/0x33</p> {/*11/27*/}
           </div>
         )}
         </div>

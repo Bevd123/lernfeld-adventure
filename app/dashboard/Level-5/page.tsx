@@ -1,25 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useCookies } from "next-client-cookies";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Page(){
 
+    const cookies = useCookies();    
+
     const [progress, setProgress] = useState(0);
     const [func, setFunc] = useState("");
+    const pending = true;
+
+    const gameLoss = () => {
+        alert("Sie wurden als Roboter Identifiziert und ihr Konto wurde gesperrt!");
+        cookies.remove("username");
+        cookies.remove("email");
+        cookies.remove("PIN");
+        cookies.remove("CreditCard");
+        cookies.remove("CCV");
+        cookies.remove("EXP");
+        window.location.href = "/";
+    }
 
     const checkInput = () => {
         console.log(func)
         if (func.toString() === "f(x) = 0.25x^3+1.5x^2-2.25x-2"){
             alert("Won!");
+        } else if (progress == 3){
+            gameLoss()
+        } else {
+            setProgress(progress + 1);
         }
     }
 
     return(
         <div>
             <div className="flex flex-col items-center">
-                <h1 className="text-3xl underline">Captcha</h1>
-                <p>Bitte bestätigen sie das Sie kein Roboter sind indem sie das folgende Rätsel lösen.</p>
+                <h1 className="text-3xl underline pb-5">Captcha (Hilfsmittelfreier Teil)</h1>
+                <p className="p-5">Bitte bestätigen sie das Sie kein Roboter sind, indem Sie das folgende Rätsel lösen.</p>
                 <Image 
                 src={"/re/function.jpg"}
                 width={512}

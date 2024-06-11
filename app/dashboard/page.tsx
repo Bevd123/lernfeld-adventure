@@ -28,6 +28,14 @@ export default function SignupPage() {
     
     const pathname = usePathname();
 
+    const checkWin = () => {
+        if (password == "420"){
+            window.location.href = "/dashboard/Level-3";
+        } else {
+            setError("Falsch!")
+        }
+    } 
+
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -91,10 +99,10 @@ export default function SignupPage() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
                 </div>
-                <a
-                    href="dashboard/Level-3"
+                <button
+                    onClick={() => checkWin()}
                     className="hover:text-white transition-colors duration-200 ease-in-out hover:bg-blue-500 text-sm text-blue-500 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                > Login </a> 
+                > Login </button> 
                 <a
                      href="/dashboard/Level-2"
                      onClick={reset}

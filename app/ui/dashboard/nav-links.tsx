@@ -13,31 +13,33 @@ import { CheckIcon } from '@heroicons/react/24/outline';
 import { XMarkIcon }  from '@heroicons/react/24/outline';
 import { CookiesProvider } from 'next-client-cookies/server';
 import { complete } from "../../../public/json/completion.json"
+import { FlagIcon } from '@heroicons/react/24/outline';
+import * from 'react-icons';
 
 const links = [
   { name: 'Level 1',
     href: '/dashboard',
-    icon:  complete[0]["Eins"] ? CheckIcon : XMarkIcon,
+    icon:  GiRobotAntennas,
   },
   {
     name: 'Level 2',
     href: '/dashboard/Level-2',
-    icon: complete[0]["Zwei"] ? CheckIcon : XMarkIcon,
+    icon: FlagIcon,
   },
   { 
     name: 'Level 3',
     href: '/dashboard/Level-3',
-    icon: complete[0]["Drei"] ? CheckIcon : XMarkIcon ,
+    icon: FlagIcon,
   },
   { 
     name: 'Level 4',
     href: '/dashboard/Level-4',
-    icon: complete[0]["Vier"] ? CheckIcon : XMarkIcon ,
+    icon: FlagIcon,
   },
   {
     name: 'Level 5',
     href: '/dashboard/Level-5',
-    icon: complete[0]["Fünf"] ? CheckIcon : XMarkIcon,
+    icon: FlagIcon,
   },
 ];
 
