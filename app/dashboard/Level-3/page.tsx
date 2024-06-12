@@ -171,7 +171,7 @@ export default function Page() {
             <h3 className="text-xl font-medium text-gray-800 mt-2">
               {product.name}
             </h3>
-            <p className="text-gray-700 mt-1">${product.price}</p>
+            <p className="text-gray-700 mt-1">$product.price</p>
             <button
               className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
               onClick={() => addToCart(product)}
