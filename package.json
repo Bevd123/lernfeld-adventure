@@ -42,5 +42,19 @@
   },
   "engines": {
     "node": ">=18.17.0"
-  }
+  },
+  "name": "lernfeld-adventure",
+  "description": "This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.",
+  "version": "1.0.0",
+  "main": "next.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bevd123/lernfeld-adventure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bevd123/lernfeld-adventure/issues"
+  },
+  "homepage": "https://github.com/Bevd123/lernfeld-adventure#readme"
 }

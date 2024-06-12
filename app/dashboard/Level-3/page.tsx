@@ -10,37 +10,37 @@ import { CookiesProvider } from "next-client-cookies/server";
 const products = [
   {
     id: 1,
-    name: "$product.name",
+    name: "Blumen",
     price: 19.99,
     images: ["/re/flow.png", "/re/flow2.png"], // Add multiple images
   },
   {
     id: 2,
-    name: "$product.name",
+    name: "Gartenzwerg",
     price: 29.99,
     images: ["/re/garden.png", "/re/garden2.png"], // Add multiple images
   },
   {
     id: 3,
-    name: "$product.name",
+    name: "Gartenhaus",
     price: 39.99,
     images: ["/re/house.png", "/re/house2.png"], // Add multiple images
   },
   {
     id: 4,
-    name: "$product.name",
+    name: "Schildkröte",
     price: 49.99,
     images: ["/re/kroete.png", "/re/kroete2.png"], // Add multiple images
   },
   {
     id: 5,
-    name: "$product.name",
+    name: "Schlauch",
     price: 59.99,
     images: ["/re/schlauch.png", "/re/schlauch2.png"], // Add multiple images
   },
   {
     id: 6,
-    name: "$product.name",
+    name: "Pilze",
     price: 69.99,
     images: ["/re/shroom.png", "/re/shroom2.png"], // Add multiple images
   },
@@ -169,7 +169,7 @@ export default function Page() {
               </div>
             </div>
             <h3 className="text-xl font-medium text-gray-800 mt-2">
-              {product.name}
+              {"$product.name"}
             </h3>
             <p className="text-gray-700 mt-1">$product.price</p>
             <button
