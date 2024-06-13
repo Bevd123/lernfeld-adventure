@@ -30,7 +30,9 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col p-6 select-none">
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-40">
-        {<AcmeLogo />}{' '}
+        <Link href="/">
+        <AcmeLogo />
+        </Link>
         <span className="text-sm font-medium text-white">Documentation</span>
       </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
