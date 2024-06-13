@@ -12,6 +12,7 @@ export default function Page() {
   const [func, setFunc] = useState("");
   const pending = true;
 
+  //function for game loss
   const gameLoss = () => {
     alert("Sie wurden als Roboter Identifiziert und ihr Konto wurde gesperrt!");
     cookies.remove("username");
@@ -23,6 +24,7 @@ export default function Page() {
     window.location.href = "/";
   };
 
+  //check if input is correct
   const checkInput = () => {
     console.log(func);
     if (func.toString() === "f(x) = 0.25x^3+1.5x^2-2.25x-2") {
@@ -34,6 +36,7 @@ export default function Page() {
     }
   };
 
+  //returning Page
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-6 md:p-12">
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row justify-center items-center">

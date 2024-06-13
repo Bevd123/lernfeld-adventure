@@ -1,5 +1,6 @@
 "using client";
 
+//imports
 import AcmeLogo from '@/app/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
@@ -9,6 +10,7 @@ import { FiGithub }  from 'react-icons/fi';
 import { DocumentIcon } from '@heroicons/react/24/outline';
 
 export default function Page() {
+  //no need to explain simply just showing the page
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4">
       <div className="flex flex-col items-center gap-12">

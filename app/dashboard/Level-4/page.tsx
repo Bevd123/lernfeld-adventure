@@ -18,7 +18,7 @@ function ProfilePage() {
   const [isWrong, setIsWrong] = useState(false)
   const [wrongCount, setWrongCount] = useState(0);
 
-
+  //unneccessary much code for removing cookies if lossing game
   const handleSave = () => {
     if(creditCardNumber == "1435-5873-2398-5488" && ccv == "756" && exp == "11/27"){
       console.log("Cookies clearing");
@@ -51,6 +51,7 @@ function ProfilePage() {
     }
   };
 
+  //unneccessary much code for showing credentials
   const handleMouseEnter = () => {
     setIsHovering(true);
   };
@@ -75,7 +76,7 @@ function ProfilePage() {
     setIsHovering2(false);
   };
 
-
+  //returning Page
   return (
     <div className="profile-page flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
       <div className="profile-info w-full max-w-md">

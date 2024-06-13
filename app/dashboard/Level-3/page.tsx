@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
 import { any, boolean, number, string } from "zod";
-import { CookiesProvider } from "next-client-cookies/server";
 
+//product overwiev in JSON foramt
 const products = [
   {
     id: 1,
@@ -46,11 +46,14 @@ const products = [
   },
 ];
 
+//export function Page 
 export default function Page() {
   const [cart, setCart] = useState<any[]>([]);
   const [activeImageIndex, setActiveImageIndex] = useState([0, 1, 1, 0, 1, 0, 0]);
   const [isExtended, setIsExtended] = useState(false);
+  const [tries, setTries] = useState(0);
 
+  //win conditions
   const winCondition = [
     {
       id: 3,
@@ -81,10 +84,12 @@ export default function Page() {
     },
   ];
 
+  //Extend Grocery List
   const handleExtend = () => {
     setIsExtended(!isExtended);
   };
 
+  //Check if win condition is met
   const isWin = (deposit: any) => {
     if (
       JSON.stringify(deposit) === JSON.stringify(winCondition) ||
@@ -98,6 +103,7 @@ export default function Page() {
     }
   };
 
+  //Switching Images
   const handleSwitchImages = (productId: any) => {
     const myArr = [...activeImageIndex];
     myArr[productId] =
@@ -105,16 +111,24 @@ export default function Page() {
     setActiveImageIndex(myArr);
   };
 
+  //add products to Cart
   const addToCart = (product: any) => {
     setCart([...cart, product]);
   };
 
+  //Check if cart products are in win condition
   const cartCheck = () => {
     if (isWin(cart)) {
       window.location.href = "/dashboard/Level-4";
+    } else if (tries === 3) {
+      alert("Du hast keine Versuche mehr");
+      window.location.href = "/dashboard/Level-5";
+    } else {
+    setTries(tries + 1);
     }
   };
 
+  //return page
   return (
     <main className="flex min-h-screen flex-col p-6 select-none">
       <button
@@ -209,6 +223,7 @@ export default function Page() {
   );
 }
 
+//Blue point image indicator
 function ImageIndicator({ isActive }: any) {
   return (
     <span

@@ -1,41 +1,42 @@
 "use client";
 
+//import
 import { useState } from 'react';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { lusitana } from '@/app/ui/fonts';
 import { FormEvent } from 'react';
 import { useCookies } from "next-client-cookies"
 import { ChangeEvent } from 'react';
 
+//export function
 export default function Page() {
   const cookies = useCookies();
   const [guess, setGuess] = useState('');
   const [targetNumber, setTargetNumber] = useState(Math.floor(Math.random() * 1000));
   const [message, setMessage] = useState('');
 
-  
-
-
+  //handle guess 
   const handleGuessChange = (event: ChangeEvent<HTMLInputElement>) => {
     cookies.set("secretPIN", targetNumber.toString());
     setGuess(event.target.value);
   };
 
+  //handle submit
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const guessNumber = parseInt(guess);
+
+    //check if guess is correct
     if (guessNumber === targetNumber) {
-      setMessage('Congratulations! You guessed the number!');
+      setMessage('Glückwunsch, du hast die Zahl erraten!');
       cookies.set("PIN", targetNumber.toString());
     } else if (guessNumber < targetNumber) {
-      setMessage('Too low! Try again.');
+      setMessage('Zu Tief, versuche es erneut!');
     } else {
-      setMessage('Too high! Try again.');
+      setMessage('Zu hoch, versuche es erneut!');
     }
     setGuess('');
   };
 
+  //return page
   return (
     <main className="flex min-h-screen flex-col p-6 md:p-12">
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row justify-center items-center">

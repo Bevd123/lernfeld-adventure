@@ -1,9 +1,6 @@
 "use client";
 
-import { CheckIcon } from "@heroicons/react/24/outline";
 import { ShieldCheckIcon } from "@heroicons/react/24/outline";
-import { XMarkIcon } from "@heroicons/react/24/outline";
-import { complete } from "../../public/json/completion.json";
 import { useState, useEffect } from "react";
 import { useCookies } from 'next-client-cookies';
 import { usePathname } from "next/navigation";
@@ -16,20 +13,22 @@ export default function SignupPage() {
     const [ResetPassword, setResetPassword] = useState(false);
     const [error, setError] = useState("");
 
+    //function to show pin reset message as a hint
     useEffect(() => {
         const timer = setTimeout(() => setError("Versuche deinen PIN zu ändern!"), 4000);
         return () => clearTimeout(timer);
     }, []);
 
+    //called if you reset your PIN
     const reset = () => {
         cookies.set("username", username);
         cookies.set("email", email);
-        complete[0]["Zwei"] = true;
         window.location.href = "dashboard/Level-2";
     };
 
     const pathname = usePathname();
 
+    //check if you got the PIN
     const checkWin = () => {
         if (password === cookies.get("secretPIN")) {
             window.location.href = "/dashboard/Level-3";
@@ -37,26 +36,16 @@ export default function SignupPage() {
             setError("Falsch!");
         }
     };
-
+    //Function to log redirect you if you got your pin
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
-        try {
-            if (password === "420") {
-                console.log("Signup successful:", { username, email, password });
-                cookies.set("username", username);
-                cookies.set("email", email);
-            }
-
-        } catch (error) {
-            setError("Signup failed");
-        }
     };
 
     useEffect(() => {
         document.title = "Signup | Lernfeld Adventure";
     }, []);
 
+    //returning Page
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
             <h1 className="text-3xl font-bold mb-6 text-center">Lernfeld Adventure</h1>
