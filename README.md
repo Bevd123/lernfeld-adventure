@@ -1,5 +1,5 @@
-## Next.js App Router Course - Starter
+## Lernfeld-Adventure
 
-This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
+Klausurersatzleistung
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+Made By Raphael Kalkus
