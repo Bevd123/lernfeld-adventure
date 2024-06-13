@@ -45,7 +45,7 @@
     "node": ">=18.17.0"
   },
   "name": "lernfeld-adventure",
-  "description": "This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.",
+  "description": "Klausurersatzleistung",
   "version": "1.0.0",
   "main": "next.config.js",
   "repository": {
