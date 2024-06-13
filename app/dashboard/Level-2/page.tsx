@@ -7,7 +7,6 @@ import { lusitana } from '@/app/ui/fonts';
 import { FormEvent } from 'react';
 import { useCookies } from "next-client-cookies"
 import { ChangeEvent } from 'react';
-import { complete } from "../../../public/json/completion.json"
 
 export default function Page() {
   const cookies = useCookies();
