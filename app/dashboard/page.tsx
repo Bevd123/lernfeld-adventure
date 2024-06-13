@@ -17,7 +17,7 @@ export default function SignupPage() {
     const [error, setError] = useState("");
 
     useEffect(() => {
-        const timer = setTimeout(() => setError("Try reset your PIN!"), 4000);
+        const timer = setTimeout(() => setError("Versuche deinen PIN zu ändern!"), 4000);
         return () => clearTimeout(timer);
     }, []);
 
@@ -102,14 +102,14 @@ export default function SignupPage() {
                     onClick={() => checkWin()}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
                 >
-                    Login
+                    Anmelden
                 </button>
                 <button
                     
                     onClick={reset}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full mt-4"
                 >
-                    Reset PIN
+                    PIN Vergessen?
                 </button>
             </form>
         </div>

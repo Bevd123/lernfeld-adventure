@@ -176,14 +176,14 @@ export default function Page() {
               className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
               onClick={() => addToCart(product)}
             >
-              Add to Cart
+              In den Einkaufswagen
             </button>
           </div>
         ))}
       </div>
       {cart.length > 0 && (
         <div className="mt-6">
-          <h2 className="text-2xl font-medium text-gray-800">Your Cart</h2>
+          <h2 className="text-2xl font-medium text-gray-800">Dein Einkaufswagen</h2>
           <ul className="list-disc ml-4 mt-4">
             {cart.map((product) => (
               <li key={product.id} className="text-gray-700">
@@ -195,13 +195,13 @@ export default function Page() {
             onClick={() => cartCheck()}
             className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
           >
-            Proceed to Checkout
+            Fortfahren zur Zahlung
           </button>
           <button
             onClick={() => setCart([])}
             className="border-white border-2 mt-4 items-center gap-5 rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base"
           >
-            Clear Cart
+            Einkaufswagen leeren
           </button>
         </div>
       )}

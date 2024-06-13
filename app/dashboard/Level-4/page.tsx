@@ -110,7 +110,7 @@ function ProfilePage() {
           />
         </div>
         <div className="flex rounded-lg border-4 bg-gray-100 p-4 my-4 mr-2">
-          <label className='block text-gray-700 font-bold mb-2' htmlFor="creditCardNumber">Credit Card Number</label>
+          <label className='block text-gray-700 font-bold mb-2' htmlFor="creditCardNumber">Kreditkarten Nummer</label>
           <input
             type="text"
             id="creditCardNumber"

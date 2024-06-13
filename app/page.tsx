@@ -8,25 +8,25 @@ import Image from 'next/image';
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col p-6">
-      <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        {<AcmeLogo />}
-      </div>
-      <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
-        <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
-          <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-          <p className={"${lusitana.className} text-x1 text-gray900 md:text-3x1 m:leading-normal"}></p>
-            <strong>Welcome to lernfeld-adventure.</strong>
+    <main className="flex min-h-screen flex-col items-center justify-center p-4">
+      <div className="flex flex-col items-center gap-12">
+        <div className="flex flex-col items-center gap-4">
+          <AcmeLogo />
+          <h1 className={`text-4xl font-bold text-gray-900 md:text-6xl ${lusitana.className}`}>
+            Willkommen zum Lernfeld-Adventure
+          </h1>
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-lg text-gray-600 md:text-xl">
           </p>
           <Link
             href="/dashboard?Nav=1"
-            className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+            className="flex items-center gap-5 rounded-lg bg-blue-500 px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base md:px-12"
           >
-            <span>Start</span> <ArrowRightIcon className="w-5 md:w-6" />
+            <span>Starten</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
-        <div className="flex items-center justify-center p-6 md:w-3/5 md:px-28 md:py-12">
-          {/* Add Hero Images Here */}
+        <div className="flex flex-col items-center gap-4">
         </div>
       </div>
     </main>

@@ -43,13 +43,13 @@ export default function Page() {
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-white px-6 py-10 md:w-2/5 md:px-20">
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <p className={"${lusitana.className} text-x1 text-gray800 md:text-3x1 m:leading-normal"}></p>
-            <strong>Guess the PIN!</strong>
+            <strong>Errate deinen PIN!</strong>
           </p>
           <form onSubmit={handleSubmit}>
             <input
               type="number"
               className="w-full rounded-md border border-gray-300 px-3 py-2 text-gray-800 focus:outline-none focus:ring-1 focus:ring-blue-500"
-              placeholder="Enter a number between 1 and 1000"
+              placeholder="Wähle eine Zahl zwischen 1 und 1000"
               value={guess}
               onChange={handleGuessChange}
             />
@@ -57,13 +57,13 @@ export default function Page() {
               type="submit"
               className="border-white border-2 mt-4 mr-10 items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:border-blue-500 hover:text-blue-500 hover:bg-white md:text-base"
             >
-              Guess
+              Raten
             </button>
             <a
               href='/dashboard'
               className="border-white border-2 mt-4 items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:border-2 hover:text-blue-500 hover:bg-white hover:border-blue-500 md:text-base "
             >
-              Login
+              Anmlden
             </a>
           </form>
           {message && <p className="mt-4 text-gray-800">{message}</p>}
