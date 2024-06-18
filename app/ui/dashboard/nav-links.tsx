@@ -1,18 +1,9 @@
 "use client";
 
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { useCookies } from 'next-client-cookies';
-import { CheckIcon } from '@heroicons/react/24/outline';
-import { XMarkIcon }  from '@heroicons/react/24/outline';
-import { CookiesProvider } from 'next-client-cookies/server';
-import { complete } from "../../../public/json/completion.json"
 import { FlagIcon } from '@heroicons/react/24/outline';
 
 const links = [
