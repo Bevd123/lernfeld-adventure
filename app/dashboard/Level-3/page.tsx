@@ -1,10 +1,8 @@
 "use client";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
-import { Inter } from "next/font/google";
 import { useState } from "react";
 import Image from "next/image";
-import { any, boolean, number, string } from "zod";
 
 //product overwiev in JSON foramt
 const products = [

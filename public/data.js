@@ -2,13 +2,13 @@ export const sculptureList = [{
     week: "1. Woche",
     time: "30.04 - 05.05",
     description: "Erste Ideenfindungsphase und erste Konzepte gefunden.",
-    extra: "AB",
+    extra: "Die erste Woche habe ich mich mit der Entwicklung eines ersten Konzeptes beschäftigt und die Grundsteine gelegt.",
     alt: ""
   }, {
     week: "2. Woche",
     time: "06.05 - 12.05",
     description: "Erste Konzepte und Prototypen entwickelt. ",
-    extra: "",
+    extra: "Das erste Konzept wurde so weit entwickelt das grundlegende Eingabe und Verarbeitung möglich war.",
     alt: ""
   }, {
     week: "3. Woche",
@@ -31,19 +31,19 @@ export const sculptureList = [{
   }, {
     week: "6. Woche",
     time: "03.06 - 09.06",
-    description: "/",
+    description: "Entwicklung der meisten Level und dieser Dokumentationsseite",
     extra: "",
     alt: ""
   }, {
     week: "7. Woche",
     time: "10.06 - 16.06",
-    description: "/",
+    description: "Feinschliff und letzt Performance anpassungen",
     extra: "",
     alt: ""
   }, {
     week: "8. Woche",
     time: "17.06 - 23.06",
-    description: "/",
+    description: "Vorbereitung auf Abgabe und anpassung der Ansicht für Mobilgeräte",
     extra: "",
     alt: ""
   }];

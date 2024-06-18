@@ -1,7 +1,7 @@
 "use client";
 
 import { useCookies } from "next-client-cookies";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { lusitana } from '@/app/ui/fonts';
 

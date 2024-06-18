@@ -10,13 +10,14 @@ export default function SignupPage() {
     const [username, setUsername] = useState("Max Mustermann*innen");
     const [email, setEmail] = useState("Max.Muster@yahu.de");
     const [password, setPassword] = useState(cookies.get("PIN"));
-    const [ResetPassword, setResetPassword] = useState(false);
     const [error, setError] = useState("");
 
     //function to show pin reset message as a hint
     useEffect(() => {
-        const timer = setTimeout(() => setError("Versuche deinen PIN zu ändern!"), 4000);
-        return () => clearTimeout(timer);
+        if (password  == null) {
+            const timer = setTimeout(() => setError("Versuche deinen PIN zu ändern!"), 4000);
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     //called if you reset your PIN

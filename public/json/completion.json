@@ -1,9 +1,0 @@
-{
-    "complete":[
-        { "Eins" : true },
-        { "Zwei" : false },
-        { "Drei" : false },
-        { "Vier" : false },
-        { "Fünf" : false }
-    ]
-}
